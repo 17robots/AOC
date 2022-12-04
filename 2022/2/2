@@ -1,0 +1,6 @@
+fn main() {
+    let text = include_str!("./input.txt").split('\n').map(|_x| -> u32 {
+        1
+    }).collect::<Vec<u32>>().iter().sum::<u32>();
+    println!("{}", text);
+}
