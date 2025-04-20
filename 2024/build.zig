@@ -5,7 +5,7 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
     const util_import = b.addModule("util", .{ .target = target, .optimize = optimize, .root_source_file = b.path("src/util.zig") });
 
-    for (1..3) |i| {
+    for (1..4) |i| {
         const day = b.addExecutable(.{ .name = b.fmt("day{d}", .{i}), .root_source_file = b.path(b.fmt("src/day{d}/main.zig", .{i})), .target = target, .optimize = optimize });
         day.root_module.addImport("util", util_import);
         const install_day = b.addRunArtifact(day);
